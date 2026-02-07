@@ -19,7 +19,6 @@
         }
         #notification-toast.show { bottom: 20px; }
 
-        /* Subtle Glow Animation for specific text */
         @keyframes textGlow {
             0% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.1); }
             50% { text-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
@@ -116,7 +115,19 @@
 
     <script>
         const amounts = [50, 100, 150, 200, 250, 300, 400, 500];
-        const cardLinks = Array(8).fill("#");
+        
+        // Yekhane tor 8-ta card-er jonno 8-ta alada link bosa
+        const cardLinks = [
+            "https://link-for-50-dollar.com",
+            "https://link-for-100-dollar.com",
+            "https://link-for-150-dollar.com",
+            "https://link-for-200-dollar.com",
+            "https://link-for-250-dollar.com",
+            "https://link-for-300-dollar.com",
+            "https://link-for-400-dollar.com",
+            "https://link-for-500-dollar.com"
+        ];
+
         const cardImg = "https://i.ibb.co/HDLkkCgy/google-play-gift-card-image-png.webp";
         const cardGrid = document.getElementById('cardGrid');
 
