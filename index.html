@@ -7,48 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
         body { background-color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
         
-        /* Premium Header Styling */
-        .premium-text {
-            color: #1f2937;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            line-height: 1.2;
-        }
+        .premium-text { color: #1f2937; text-shadow: 0 5px 15px rgba(0,0,0,0.02); line-height: 1.2; }
 
-        /* Live Notification Animation */
         #notification-toast {
-            position: fixed;
-            bottom: -100px;
-            left: 20px;
-            background: white;
-            padding: 12px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 100;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border-left: 5px solid #2ecc71;
+            position: fixed; bottom: -100px; left: 20px; background: white; padding: 12px 20px;
+            border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex;
+            align-items: center; gap: 12px; z-index: 100; transition: all 0.5s; border-left: 5px solid #2ecc71;
         }
-
         #notification-toast.show { bottom: 20px; }
 
-        /* Gift Card Styles */
+        /* Subtle Glow Animation for specific text */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.1); }
+            50% { text-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
+            100% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.1); }
+        }
+        .glow-effect { animation: textGlow 3s infinite ease-in-out; }
+
         .gift-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; background-color: white; cursor: pointer; }
         .gift-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #3b82f6; }
 
         .btn-premium {
             background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-            font-weight: 700;
+            position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3); font-weight: 700;
         }
-
         .btn-premium::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: rgba(255, 255, 255, 0.2); transform: rotate(45deg); animation: sweep 4s infinite;
@@ -62,7 +48,7 @@
 
         @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
         .animate-shake { animation: shake 0.3s ease-in-out; }
-        .btn-error-state { background-color: #ef4444 !important; color: white !important; }
+        .btn-error-state { background-color: #ef4444 !important; }
     </style>
 </head>
 <body>
@@ -100,8 +86,8 @@
                 <i class="fas fa-gift text-2xl animate-bounce"></i>
             </div>
             
-            <h2 class="text-2xl font-black uppercase mb-1 text-gray-800 tracking-tighter">One Last Step</h2>
-            <p class="text-orange-500 font-black text-[10px] mb-6 uppercase tracking-[0.2em] italic">Human Verification</p>
+            <h2 class="text-2xl font-semibold uppercase mb-1 text-gray-800 tracking-tight glow-effect">One Last <span class="text-blue-600">Step</span></h2>
+            <p class="text-orange-500 font-medium text-[10px] mb-6 uppercase tracking-[0.25em] italic">Human Verification</p>
 
             <h3 class="text-lg font-bold text-gray-700 mb-6 leading-tight">
                 Congratulations! You get <span id="modalAmount" class="text-blue-600 font-black"></span> Redeem Code 💎
@@ -130,7 +116,7 @@
 
     <script>
         const amounts = [50, 100, 150, 200, 250, 300, 400, 500];
-        const cardLinks = Array(8).fill("#"); // Boshau tor CPA link gulo
+        const cardLinks = Array(8).fill("#");
         const cardImg = "https://i.ibb.co/HDLkkCgy/google-play-gift-card-image-png.webp";
         const cardGrid = document.getElementById('cardGrid');
 
@@ -142,7 +128,6 @@
             const amt = notifAmt[Math.floor(Math.random() * notifAmt.length)];
             const toast = document.getElementById('notification-toast');
             document.getElementById('notif-text').innerText = `${name} just claimed a $${amt} Gift Card!`;
-            
             toast.classList.add('show');
             setTimeout(() => { toast.classList.remove('show'); }, 4000);
         }
@@ -163,9 +148,7 @@
                     <div class="text-center mb-6">
                         <h3 class="text-2xl font-bold text-gray-800 tracking-tight">$${amount} Google Play</h3>
                     </div>
-                    <div class="btn-premium w-full text-white font-bold py-4 rounded-2xl text-center uppercase text-xs tracking-widest">
-                        Redeem Now
-                    </div>
+                    <div class="btn-premium w-full text-white font-bold py-4 rounded-2xl text-center uppercase text-xs tracking-widest">Redeem Now</div>
                 </div>
             `;
             cardGrid.innerHTML += card;
