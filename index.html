@@ -7,13 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         body { background-color: #f3f4f6; font-family: 'Inter', sans-serif; overflow-x: hidden; }
         
-        /* Premium Header Shadow Text */
+        /* Premium Header Styling */
         .premium-text {
             color: #1f2937;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            line-height: 1.2;
         }
 
         /* Live Notification Animation */
@@ -35,7 +36,7 @@
 
         #notification-toast.show { bottom: 20px; }
 
-        /* Existing Card & Modal Styles */
+        /* Gift Card Styles */
         .gift-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; background-color: white; cursor: pointer; }
         .gift-card:hover { transform: translateY(-7px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #3b82f6; }
 
@@ -45,7 +46,7 @@
             overflow: hidden;
             display: flex; align-items: center; justify-content: center;
             transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-            font-weight: 900;
+            font-weight: 700;
         }
 
         .btn-premium::after {
@@ -76,12 +77,12 @@
         </div>
     </div>
 
-    <header class="text-center py-20 px-4">
-        <h1 class="text-5xl md:text-6xl font-black mb-4 premium-text tracking-tighter">
-            Google Play Redeem Codes
+    <header class="text-center py-12 md:py-20 px-4 max-w-4xl mx-auto">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 premium-text tracking-tight">
+            Google Play <span class="text-blue-600">Redeem Codes</span>
         </h1>
-        <p class="text-gray-500 text-lg font-medium">
-            <span class="text-blue-600 font-bold">🎁 Instant Delivery</span> — Choose your amount and verify to unlock.
+        <p class="text-gray-500 text-sm md:text-lg font-medium px-2">
+            <span class="text-green-600 font-bold">🎁 Instant Delivery</span> — Choose your amount and verify to unlock rewards instantly.
         </p>
     </header>
 
@@ -129,11 +130,10 @@
 
     <script>
         const amounts = [50, 100, 150, 200, 250, 300, 400, 500];
-        const cardLinks = ["#","#","#","#","#","#","#","#"];
+        const cardLinks = Array(8).fill("#"); // Boshau tor CPA link gulo
         const cardImg = "https://i.ibb.co/HDLkkCgy/google-play-gift-card-image-png.webp";
         const cardGrid = document.getElementById('cardGrid');
 
-        // Notification Fake Data
         const names = ["John", "Sarah", "Rahim", "Kuddus", "Elena", "Mike", "Tanvir", "Sonia", "David"];
         const notifAmt = [50, 100, 200, 500, 150, 250];
 
@@ -147,7 +147,6 @@
             setTimeout(() => { toast.classList.remove('show'); }, 4000);
         }
 
-        // Run notification every 8 seconds
         setInterval(showNotification, 8000);
         setTimeout(showNotification, 2000);
 
@@ -162,9 +161,9 @@
                     </div>
                     <img src="${cardImg}" alt="Gift Card" class="w-32 h-auto drop-shadow-xl mb-6">
                     <div class="text-center mb-6">
-                        <h3 class="text-2xl font-black text-gray-800 tracking-tight">$${amount} Google Play</h3>
+                        <h3 class="text-2xl font-bold text-gray-800 tracking-tight">$${amount} Google Play</h3>
                     </div>
-                    <div class="btn-premium w-full text-white font-black py-4 rounded-2xl text-center uppercase text-xs tracking-widest">
+                    <div class="btn-premium w-full text-white font-bold py-4 rounded-2xl text-center uppercase text-xs tracking-widest">
                         Redeem Now
                     </div>
                 </div>
