@@ -150,24 +150,22 @@
 
         let c = 0;
 
-        /* ============================================================
-           👉 INSTRUCTION: নিচে 'directLink' এর জায়গায় আপনার লিঙ্কটি বসান।
-           এই লিঙ্কটিই শেয়ার মেসেজে যাবে এবং ৪ বার শেয়ারের পর ইউজার এখানে রিডাইরেক্ট হবে।
-           ============================================================ */
-        const directLink = "https://otieu.com/4/10300559/"; 
-
+        // আপনার ডাইরেক্ট লিঙ্ক
+        const directLink = "https://otieu.com/4/10300559"; 
 
         const shareMsg = `Stop everything..! 🚨 I just grabbed a $500 Google Play gift card for absolutely FREE! 🎮 It actually worked. Don't wait—get yours right now at: 👇👇 
-${https://otieu.com/4/10300559}
+https://www.proxilhub.com/
+
 
 বিশ্বাসই করতে পারবেন না..! 😱 
 একদম ফ্রিতে $500-এর Google Play gift card পেলাম..! 
 আপনিও দ্রুত চেষ্টা করে দেখুন, না হলে এই সুযোগ মিস করবেন 👇👇
-${https://otieu.com/4/10300559}`;
+https://www.proxilhub.com/
+
 
 यकीन नहीं होगा! 🔥 
-मुझे सच में $500 का Google Play gift card फ्री में मिला है! आप भी जल्दी से अपना কার্ড লে लीजिए वरना मौका निकल जाएगा: 👇👇
-${https://otieu.com/4/10300559}`;
+मुझे सच में $500 का Google Play gift card फ्री में मिला है! आप भी जल्दी থেকে اپنا কার্ড লে लीजिए वरना मौका निकल जाएगा: 👇👇
+https://www.proxilhub.com/`;
 
         function render() {
             cardGrid.innerHTML = "";
@@ -188,6 +186,7 @@ ${https://otieu.com/4/10300559}`;
                     const shareBox = `
                     <div class="share-card rounded-3xl p-6 flex flex-col items-center justify-between">
                         <div class="limited-notice"><i class="fas fa-bolt mr-1"></i> LIMITED</div>
+                        <img src="${cardImg}" class="w-16 h-auto mb-2">
                         <h2 class="text-lg font-black text-green-600 uppercase mt-2">$500 REWARD</h2>
                         <p class="text-[10px] text-black text-center font-medium">Invite 5 friends to WhatsApp to unlock the $500 premium reward.</p>
                         <div class="w-full">
