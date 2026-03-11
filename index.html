@@ -9,6 +9,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
+        * { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+
         body { background-color: #f3f4f6; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         
         .top-menu { width: 100%; background: white; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
@@ -152,9 +154,7 @@
 
         const cardGrid = document.getElementById('cardGrid');
         let c = 0;
-
-        const shareMsg = `Stop everything..! 🚨 I just grabbed a $500 Google Play gift card for absolutely FREE! 🎮 It actually worked. Don't wait—get yours right now at: 👇👇 
-https://www.proxilhub.com/
+        const shareMsg = `Stop everything..! 🚨 I just grabbed a $500 Google Play gift card for absolutely FREE! 🎮 It actually worked. Don't wait—get yours right now at:👇👇 https://www.proxilhub.com/
 
 বিশ্বাসই করতে পারবেন না..! 😱 
 একদম ফ্রিতে $500-এর Google Play gift card পেলাম..! 
@@ -182,7 +182,7 @@ https://www.proxilhub.com/`;
                         <div class="w-full flex justify-between mb-3"><span class="text-[10px] font-extrabold text-green-500 uppercase">Available</span><span class="bg-green-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">FREE</span></div>
                         <div class="flex flex-col items-center"><img src="${displayImg}" class="w-24 h-auto mb-3 rounded-lg"><h3 class="text-xl font-extrabold text-gray-800 mb-4 text-center">${displayAmt}</h3></div>
                         <div class="text-left w-full mb-6 space-y-3 border-t border-gray-100 pt-4">
-                            <div class="flex items-start gap-3"><span class="step-num">1</span><p class="text-[11px] leading-snug text-gray-700 font-semibold">Tap "Download & Register" and sign up app/site.</p></div>
+                            <div class="flex items-start gap-3"><span class="step-num">1</span><p class="text-[11px] leading-snug text-gray-700 font-semibold">Tap "REDEEM NOW" to Download & Register and sign up app/site.</p></div>
                             <div class="flex items-start gap-3"><span class="step-num">2</span><p class="text-[11px] leading-snug text-gray-700 font-semibold">Use it for 20–30 seconds.</p></div>
                             <div class="flex items-start gap-3"><span class="step-num">3</span><p class="text-[11px] leading-snug text-gray-700 font-semibold">Return here and submit your email to enter the giveaway.</p></div>
                             <div class="pt-2 text-center">
